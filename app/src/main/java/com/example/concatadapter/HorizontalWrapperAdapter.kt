@@ -11,7 +11,12 @@ class HorizontalWrapperAdapter(
     private val horizontalAdapter: HorizontalAdapter
 ) : RecyclerView.Adapter<HorizontalWrapperAdapter.ViewHolder>() {
 
+    companion object {
+        const val TYPE = 0
+    }
+
     private var lastScroll = 0
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             ItemHorizontalWrapperBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -20,6 +25,10 @@ class HorizontalWrapperAdapter(
 
     override fun getItemCount(): Int {
         return 1
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return TYPE
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

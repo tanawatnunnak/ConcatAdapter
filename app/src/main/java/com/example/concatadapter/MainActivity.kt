@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     private val concatAdapter: ConcatAdapter by lazy {
         val config = ConcatAdapter.Config.Builder().apply {
-            setIsolateViewTypes(false)
+            setIsolateViewTypes(false) //flag reuse betaw
         }.build()
         ConcatAdapter(
             config,
@@ -64,6 +64,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onClick(position: Int, itemModel: ItemModel) {
-        itemAdapter.update(position - 1, "This is update")
+        itemAdapter.update(position, "This is update")
     }
 }

@@ -33,6 +33,7 @@ class FooterAdapter : RecyclerView.Adapter<FooterAdapter.ViewHolder>() {
 
     fun updateRemaining(value: Int) {
         this.remaining = listOf(value)
+        notifyDataSetChanged()
     }
 
     class ViewHolder(

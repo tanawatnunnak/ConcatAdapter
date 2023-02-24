@@ -32,7 +32,7 @@ class HeaderAdapter : RecyclerView.Adapter<HeaderAdapter.ViewHolder>() {
 
     fun updateHeader(value: Int) {
         this.header = listOf(value)
-        notifyItemChanged(header.size)
+        notifyDataSetChanged()
     }
 
     class ViewHolder(

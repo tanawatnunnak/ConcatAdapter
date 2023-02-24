@@ -3,7 +3,6 @@ package com.example.concatadapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlin.random.Random
 
 class MainViewModel : ViewModel() {
 
@@ -22,18 +21,21 @@ class MainViewModel : ViewModel() {
     fun fetchApiSomeThing() {
         val result = mockData()
         _bannerLiveData.value = mockBanner()
+
         _headerLiveData.value = result.size
+
         _itemsLiveData.value = result
-        _footerLiveData.value = result.size - Random(result.size).nextInt()
+
+        _footerLiveData.value = result.size - 10
     }
 
     private fun mockData(): List<ItemModel> {
         return mutableListOf<ItemModel>().apply {
-            repeat(20) { value ->
+            repeat(40) { value ->
                 add(
                     ItemModel(
                         title = "I am number $value",
-                        total = value * Random(value).nextInt()
+                        total = value * 10
                     )
                 )
             }
